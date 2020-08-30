@@ -6,13 +6,13 @@
     <section class="top-read mt-12">
       <h2 class="text-2xl font-serif text-indigo-700 font-bold capitalize">Top read:</h2>
       <div class="flex mt-4">
-        <div class="w-1/4 mr-16">
+        <nuxt-link to="/book/slug" class="w-1/4 mr-16">
           <img src="@/static/images/book8.png" class="w-full" alt />
           <div class="mt-3">
             <p class="font-medium text-gray-800">Stamped from the begining</p>
             <p class="text-read-empress text-sm italic">Kendi, Ibram X</p>
           </div>
-        </div>
+        </nuxt-link>
         <div class="w-1/4 mr-16">
           <img src="@/static/images/book9.png" class="w-full" alt />
           <div class="mt-3">
