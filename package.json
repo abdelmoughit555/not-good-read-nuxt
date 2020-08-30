@@ -10,7 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "nuxt": "^2.14.0"
+    "@nuxtjs/axios": "^5.12.2",
+    "nuxt": "^2.14.0",
+    "vue-observe-visibility": "^0.4.6",
+    "vue-star-rating": "^1.6.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^2.1.0",

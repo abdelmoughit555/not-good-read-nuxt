@@ -7,6 +7,9 @@
 module.exports = {
   theme: {
     extend: {
+      fontFamily: {
+        main: ["Nunito", "sans-seri"]
+      },
       colors: {
         "read-empress": "#777274",
         "read-gray-93": "#EDEDED"
