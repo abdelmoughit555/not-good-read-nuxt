@@ -1,39 +1,47 @@
 <template>
-  <div class="grid grid-cols-5 gap-12">
-    <div v-for="book in books" :key="book.id">
-      <img src="@/static/images/book11.png" class="w-full rounded-lg" alt />
-      <p class="text-sm text-gray-800 mt-3 mb-1 tracking-wide">{{book.title}}</p>
-      <p class="text-xs text-gray-500 tracking-wide">{{book.authors[0].first_name}}</p>
-    </div>
+  <div>
+    <template v-if="$fetchState.pending">
+      <BooksSkeleton />
+    </template>
+    <template v-else>
+      <BooksData :books="books" />
+    </template>
   </div>
 </template>
 <script>
+import BooksSkeleton from "./skeletons/BooksSkeleton";
+import BooksData from "./data/BooksData";
 export default {
-  data() {
-    return {
-      books: [],
-      meta: {},
-    };
-  },
   props: {
     category: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
+  data() {
+    return {
+      books: []
+    };
+  },
+  components: {
+    BooksSkeleton,
+    BooksData
+  },
+
   watch: {
     category() {
       this.$fetch();
-    },
+    }
   },
+
   async fetch() {
     let { data, meta } = await this.$axios.$get("books", {
       params: {
-        category: this.category,
-      },
+        category: this.category
+      }
     });
     this.books = data;
     this.meta = meta;
-  },
+  }
 };
 </script>
